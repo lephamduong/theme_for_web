@@ -1,8 +1,6 @@
-{% raw %}
 <div class="mathjax-display">
-  $$ {{ include.math }} $$
+  $$ {{ include.math | escape }} $$
 </div>
-{% endraw %}
 
 <!-- MathJax configuration -->
 <script>
