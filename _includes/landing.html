@@ -1,6 +1,6 @@
 <div class="row justify-content-center align-items-center p-4">
   <div class="col-lg-4 col-md-6 text-center mt-4">
-
+    
     <!-- Fine Circle Responsive Image -->
     <div id="container" class="my-2">
       <div id="dummy"></div>
@@ -9,7 +9,28 @@
       </div>
     </div>
 
-    <p class="text-muted wow animated slideInUp" data-wow-delay=".15s">{{ site.description }}</p>
+    <p id="description" class="text-muted"></p>
 
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Fetch the site description dynamically
+    var description = "{{ site.description }}";
+    var target = document.getElementById("description");
+    var delay = 100; // Delay in milliseconds between each character
+
+    // Typing effect
+    let index = 0;
+    function typeNextLetter() {
+      if (index < description.length) {
+        target.textContent += description[index];
+        index++;
+        setTimeout(typeNextLetter, delay);
+      }
+    }
+
+    typeNextLetter(); // Start typing effect
+  });
+</script>
