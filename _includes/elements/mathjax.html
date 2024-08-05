@@ -2,6 +2,14 @@
   $$ {{ include.math | escape }} $$
 </div>
 
+#cai espcape đề phòng trong latex có dấu ><, những dấu này lại là syntax của html, nếu ko có escape html sẽ nhận nó là syntax
+#{% raw %}
+#<div class="mathjax-display">
+#  $$ {{ include.math }} $$
+#</div>
+#{% endraw %}
+#Nếu dùng code raw thì nó hiểu là raw include.math = include.math, tất cả đều ra 1 kết quả
+
 <!-- MathJax configuration -->
 <script>
   MathJax = {
